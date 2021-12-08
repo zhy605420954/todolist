@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todolistdemo.mapper.TaskListMapper">
+    <select id="queryTaskListByUserId" resultType="TaskList">
+        select * from tasklist where UserId = #{UserId}
+    </select>
+<!--    <select id="queryTaskByListId" resultType="Task">-->
+<!--        select * from task where TaskListId = #{TaskListId}-->
+<!--    </select>-->
+    <insert id="addTaskList" parameterType="com.example.todolistdemo.pojo.TaskList">
+        insert into tasklist (Id,Name,UserId) values (#{Id},#{Name},#{UserId})
+    </insert>
+    <update id="updateTaskList" parameterType="com.example.todolistdemo.pojo.TaskList">
+        update tasklist set Name=#{Name},UserId=#{UserId} where Id = #{Id}
+    </update>
+    <delete id="deleteTaskList" parameterType="int">
+        delete from tasklist where Id = #{Id}
+    </delete>
+</mapper>

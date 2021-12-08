@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todolistdemo.mapper.UserMapper">
+    <select id="queryUserList" resultType="User">
+        select * from user
+    </select>
+    <select id="queryUserById" resultType="User">
+        select * from user where Id = #{Id}
+    </select>
+    <insert id="addUser" parameterType="User">
+        insert into user (Id,Name,Password) values (#{Id},#{Name},#{Password})
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update user set Name=#{Name},Password=#{Password} where Id = #{Id}
+    </update>
+    <delete id="deleteUser" parameterType="User">
+        delete from user where Id = #{Id}
+    </delete>
+</mapper>
